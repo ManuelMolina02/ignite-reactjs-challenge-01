@@ -15,6 +15,7 @@ export function TaskList() {
   const [tasks, setTasks] = useState<Task[]>([]);
   const [newTaskTitle, setNewTaskTitle] = useState('');
 
+  //Create a new task
   function handleCreateNewTask() {
     if (!newTaskTitle) {
       return
@@ -30,6 +31,7 @@ export function TaskList() {
     setNewTaskTitle('')
   }
 
+  //Check task is complete
   function handleToggleTaskCompletion(id: string) {
     const checkTodo = tasks.map(task => task.id === id ? {
       ...task,
@@ -37,10 +39,9 @@ export function TaskList() {
     } : task)
 
     setTasks(checkTodo)
-
-
   }
 
+  //Delete task
   function handleRemoveTask(id: string) {
     const filteredTasks = tasks.filter(task => task.id !== id)
 
